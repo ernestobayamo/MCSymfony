@@ -23,5 +23,19 @@ class DefaultController extends Controller
       return $this->render('MCBundle:Frontend:pricing.html.twig');
     }
 
+    /**
+     * @Route("/tutors", name="tutors")
+     */
+    public function tutorsAction(Request $request){
+      return $this->render('MCBundle:Frontend:tutors.html.twig');
+    }
+
+    /**
+     * @Route("/survey", name="survey")
+     */
+    public function surveyAction(Request $request){
+      return $this->render('MCBundle:Frontend:survey.html.twig');
+    }
+
 
 }
