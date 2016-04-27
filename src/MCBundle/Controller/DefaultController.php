@@ -37,5 +37,10 @@ class DefaultController extends Controller
       return $this->render('MCBundle:Frontend:survey.html.twig');
     }
 
-
+    /**
+     * @Route("/website-forum", name="website-forum")
+     */
+    public function forumAction(Request $request){
+      return $this->render('MCBundle:Frontend:website-forum.html.twig');
+    }
 }
