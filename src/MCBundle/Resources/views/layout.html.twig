@@ -1,0 +1,112 @@
+{% extends ('::base.html.twig') %}
+
+{% block head %}
+
+ 	<link href="{{ asset('bundles/mc/css/vendor/all.css')}}" rel="stylesheet">  
+  <link href="{{ asset('bundles/mc/css/app/app.css')}}" rel="stylesheet">
+
+    <!-- Inline Script for colors and config objects; used by various external scripts; -->
+  <script>
+    var colors = {
+      "danger-color": "#e74c3c",
+      "success-color": "#81b53e",
+      "warning-color": "#f0ad4e",
+      "inverse-color": "#2c3e50",
+      "info-color": "#2d7cb5",
+      "default-color": "#6e7882",
+      "default-light-color": "#cfd9db",
+      "purple-color": "#9D8AC7",
+      "mustard-color": "#d4d171",
+      "lightred-color": "#e15258",
+      "body-bg": "#f6f6f6"
+    };
+    var config = {
+      theme: "html",
+      skins: {
+        "default": {
+          "primary-color": "#42a5f5"
+        }
+      }
+    };
+  </script>
+
+
+  <script src="{{ asset('bundles/mc/js/vendor/all.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/app.js')}}"></script>
+
+{% endblock head %}
+
+{% block body %}
+
+	<div id="content">
+    <div class="container-fluid">
+
+      <div class="lock-container">
+        <div class="panel panel-default text-center paper-shadow" data-z="0.5">
+          <h1 class="text-display-1 text-center margin-bottom-none">Sign In</h1>
+          <img src="{{ asset('bundles/mc/images/people/110/guy-5.jpg')}}" class="img-circle width-80">
+
+
+          <div class="panel-body">
+            <div class="form-group">
+
+
+            	<div>
+		            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+		                <a href="{{ path('fos_user_security_logout') }}">
+		                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+		                </a>
+		            {% else %}
+		                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+		            {% endif %}
+		        </div>
+
+		        {% if app.request.hasPreviousSession %}
+		            {% for type, messages in app.session.flashbag.all() %}
+		                {% for message in messages %}
+		                    <div class="flash-{{ type }}">
+		                        {{ message }}
+		                    </div>
+		                {% endfor %}
+		            {% endfor %}
+		        {% endif %}
+              <div class="form-control-material">
+
+
+
+
+                <input class="form-control" id="username" type="text" placeholder="Username">
+                <label for="username">Username</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-control-material">
+                <input class="form-control" id="password" type="password" placeholder="Enter Password">
+                <label for="password">Password</label>
+              </div>
+            </div>
+
+            <a href="website-student-dashboard.html" class="btn btn-primary">Login <i class="fa fa-fw fa-unlock-alt"></i></a>
+            <a href="#" class="forgot-password">Forgot password?</a>
+            <a href="sign-up.html" class="link-text-color">Create account</a>
+          </div>
+
+
+
+
+        <div>
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+

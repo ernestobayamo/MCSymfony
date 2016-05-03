@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function indexAction(Request $request){
       return $this->render('MCBundle:Frontend:index.html.twig');
