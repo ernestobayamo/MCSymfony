@@ -21,7 +21,7 @@
         </button>
         <div class="navbar-brand navbar-brand-logo">
           <a class="svg" href="/home">
-            Logo
+           <img src="{{asset('bundles/mc/images/logo.gif')}}" alt="" class="img-circle" />
           </a>
         </div>
       </div>
@@ -152,6 +152,15 @@
 
 
   <script src="{{ asset('bundles/mc/js/vendor/all.js')}}"></script>
-  <script src="{{ asset('bundles/mc/js/app/app.js')}}"></script>
+  <!--<script src="{{ asset('bundles/mc/js/app/app.js')}}"></script>-->
+
+  <script src="{{ asset('bundles/mc/js/app/essentials.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/material.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/layout.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/sidebar.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/media.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/messages.js')}}"></script>
+  <script src="{{ asset('bundles/mc/js/app/charts.js')}}"></script>
+
 
 {% endblock %}
